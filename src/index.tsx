@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Menu from './pages/Menu'
 import NavigationBar from './components/NavigationBar';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 import './index.css';
 import 'normalize.css';
@@ -15,5 +16,6 @@ root.render(
     <NavigationBar/>
     <Header>A casa da Massa</Header>
     <Menu />
+    <Footer />
   </React.StrictMode>
 );

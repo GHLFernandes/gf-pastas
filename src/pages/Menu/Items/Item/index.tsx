@@ -9,7 +9,7 @@ type Props = typeof items[0];
 const StyledItem = styled.div`
     display: flex;
     flex-wrap: wrap;
-    width: 90%;
+    width: 100%;
     border-bottom: 1px solid ${style.color.grey};
 
 `;

@@ -11,7 +11,8 @@ const style = {
         black: '#4c4d5e',
         light_grey: '#f6f6f6',
         blue: '#282b57',
-        red: '#d73b3b'
+        red: '#d73b3b',
+        white: 'white',
     },
     filters: {
         pastas: '#d73b3b',
