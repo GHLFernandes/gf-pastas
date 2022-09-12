@@ -1,0 +1,17 @@
+[{
+        "name": "",
+        "value": ""
+    },
+    {
+        "name": "Porção",
+        "value": "portion"
+    },
+    {
+        "name": "Número de Pessoas",
+        "value": "amount_people"
+    },
+    {
+        "name": "Preço",
+        "value": "price"
+    }
+]
