@@ -9,7 +9,7 @@ const StyledBtn = styled.button`
 `;
 
 export default function Button() {
-  return (
-    <StyledBtn>Botão</StyledBtn>
-  )
+	return (
+		<StyledBtn>Botão</StyledBtn>
+	);
 }

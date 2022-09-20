@@ -51,23 +51,23 @@ interface Props {
 
 export default function Filters(props : Props) {
 
-  const selectFilter = (op:IOption) => {
-    if(props.filter === op.id) return props.setFilter(null);
-    return props.setFilter(op.id);
-  }
+	const selectFilter = (op:IOption) => {
+		if(props.filter === op.id) return props.setFilter(null);
+		return props.setFilter(op.id);
+	};
 
-  return (
-    <StyledFilters>
-      <RowFilters>
-        {filters.map(op => ( 
-            <BtnFilter 
-              className={`${props.filter === op.id?'--active' :''}`}
-              key={op.id} 
-              onClick={() => selectFilter(op)}
-            >
-              {op.label} 
-            </BtnFilter>))}
-      </RowFilters>
-    </StyledFilters>
-  )
+	return (
+		<StyledFilters>
+			<RowFilters>
+				{filters.map(op => ( 
+					<BtnFilter 
+						className={`${props.filter === op.id?'--active' :''}`}
+						key={op.id} 
+						onClick={() => selectFilter(op)}
+					>
+						{op.label} 
+					</BtnFilter>))}
+			</RowFilters>
+		</StyledFilters>
+	);
 }

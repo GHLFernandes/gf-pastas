@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { CgSearch } from 'react-icons/cg';
 import styled from 'styled-components';
 import style from '../../../styles/_vars';
@@ -39,14 +39,14 @@ const Search = styled.input`
 `;
 
 export default function Searcher({search, setSearch}: Props) {
-  return (
-    <StyledSearcher>
-        <Search
-            value={search}
-            onChange={(e) => setSearch(e.target.value)} 
-            placeholder="Buscar..."
-        />
-        <CgSearch size="20" color="#4C4D5E"/>
-    </StyledSearcher>
-  )
+	return (
+		<StyledSearcher>
+			<Search
+				value={search}
+				onChange={(e) => setSearch(e.target.value)} 
+				placeholder="Buscar..."
+			/>
+			<CgSearch size="20" color="#4C4D5E"/>
+		</StyledSearcher>
+	);
 }

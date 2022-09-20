@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
 import HeadImg from '@/assets/img/menu/header.png';
 import style from '@/styles/_vars';
@@ -63,11 +63,11 @@ const HeaderText = styled.div`
 `;
 
 export default function Header({children} : {children: string}) {
-  return (
-    <StyledHeader>
-        <HeaderText>
-            {children}
-        </HeaderText>
-    </StyledHeader>
-  )
+	return (
+		<StyledHeader>
+			<HeaderText>
+				{children}
+			</HeaderText>
+		</StyledHeader>
+	);
 }

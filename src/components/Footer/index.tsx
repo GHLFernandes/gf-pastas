@@ -23,11 +23,11 @@ const StyledFooter = styled.section`
 `;
 
 const Footer = () => {
-    return (<StyledFooter>
-            <p>
+	return (<StyledFooter>
+		<p>
                 Desenvolvido por GFernandes.
-            </p>
-        </StyledFooter>)
-}
+		</p>
+	</StyledFooter>);
+};
 
 export default Footer;

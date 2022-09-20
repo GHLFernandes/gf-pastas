@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { ReactComponent as Logo} from '@/assets/img/logo.svg';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
@@ -16,12 +16,12 @@ padding: 20px ${style.hPadding};
 @media (min-width: ${bp.desktop_sm}) and (max-width: ${bp.desktop_md}) {
   padding: 20px ${style.hPadding_md};
 }
-`
+`;
 
 export default function NavigationBar() {
-  return (
-    <StyledNav>
-       <Logo alt='Logo GF-Pastas'/>
-    </StyledNav>
-  )
+	return (
+		<StyledNav>
+			<Logo alt='Logo GF-Pastas'/>
+		</StyledNav>
+	);
 }

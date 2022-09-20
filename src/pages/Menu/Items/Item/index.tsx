@@ -1,5 +1,5 @@
 import React from 'react';
-import items from '../items.json';
+import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
@@ -132,33 +132,33 @@ const Price = styled.div`
 `;
 
 export default function Item(props : Props) {
-    const {title, description, category, size, serving, price, photo} = props;
+	const {title, description, category, size, serving, price, photo} = props;
     
-    return (
-    <StyledItem>
-        <Image>
-            <img src={photo} alt={title}/>
-        </Image>
-        <Description>
-            <Title>
-                <h2>{title}</h2>
-                <p>{description}</p>
-            </Title>
-            <Tags>
-                <Type className={category.label.toLowerCase()}>
-                    {category.label}
-                </Type>
-                <Portion>
-                    {size}g
-                </Portion>
-                <Serving>
+	return (
+		<StyledItem>
+			<Image>
+				<img src={photo} alt={title}/>
+			</Image>
+			<Description>
+				<Title>
+					<h2>{title}</h2>
+					<p>{description}</p>
+				</Title>
+				<Tags>
+					<Type className={category.label.toLowerCase()}>
+						{category.label}
+					</Type>
+					<Portion>
+						{size}g
+					</Portion>
+					<Serving>
                     Serve {serving} pessoas
-                </Serving>
-                <Price>
+					</Serving>
+					<Price>
                     R$ {price.toFixed(2)}
-                </Price>
-            </Tags>
-        </Description>
-    </StyledItem>
-  )
+					</Price>
+				</Tags>
+			</Description>
+		</StyledItem>
+	);
 }

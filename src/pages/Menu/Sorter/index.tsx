@@ -73,36 +73,36 @@ const SorterOption = styled.div`
 
 export default function Sorter({sorter, setSorter} : Props) {
 
-    const [open, setOpen] = useState(false);
-    const [nameSorter, setNameSorter] = useState('');
+	const [open, setOpen] = useState(false);
+	const [nameSorter, setNameSorter] = useState('');
 
-    const handleSorter = (op: typeof options[0]) => {
-        setSorter(op.value);
-        setNameSorter(op.name);
-    }
+	const handleSorter = (op: typeof options[0]) => {
+		setSorter(op.value);
+		setNameSorter(op.name);
+	};
 
-    return (
-        <BtnSorter 
-            className={open?'--active':''} 
-            onClick={() => setOpen(!open)}
-            onBlur={() => setOpen(false)}
-        >
-            <span>{nameSorter || 'Ordenar por'}</span>
-            {
-                open?<MdKeyboardArrowUp size={20}/>: <MdKeyboardArrowDown size={20}/>
-            }
-            <SorterOptions 
-                className={open?'--active':''}
-            >
-                {options.map((op) => (
-                    <SorterOption 
-                        key={op.value}
-                        onClick={() => handleSorter(op)}
-                    >
-                        {op.name}
-                    </SorterOption>
-                ))}
-            </SorterOptions>
-        </BtnSorter>
-    )
+	return (
+		<BtnSorter 
+			className={open?'--active':''} 
+			onClick={() => setOpen(!open)}
+			onBlur={() => setOpen(false)}
+		>
+			<span>{nameSorter || 'Ordenar por'}</span>
+			{
+				open?<MdKeyboardArrowUp size={20}/>: <MdKeyboardArrowDown size={20}/>
+			}
+			<SorterOptions 
+				className={open?'--active':''}
+			>
+				{options.map((op) => (
+					<SorterOption 
+						key={op.value}
+						onClick={() => handleSorter(op)}
+					>
+						{op.name}
+					</SorterOption>
+				))}
+			</SorterOptions>
+		</BtnSorter>
+	);
 }

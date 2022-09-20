@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
-import style from '@/styles/_vars'
+import style from '@/styles/_vars';
 
 const Text = styled.h3`
     font-size: 2rem;
@@ -9,11 +9,11 @@ const Text = styled.h3`
 `;
 
 export default function PageTitle({children} : {children:string}) {
-  return (
-    <section>
-        <Text>
-            {children}
-        </Text>
-    </section>
-  )
+	return (
+		<section>
+			<Text>
+				{children}
+			</Text>
+		</section>
+	);
 }

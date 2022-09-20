@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import PageTitle from '@/components/PageTitle';
 import Searcher from '@/pages/Menu/Searcher';
 import Filters from './Filters';
@@ -38,21 +38,21 @@ const StyledFilter = styled.div`
 
 export default function Menu() {
 
-  const [ search, setSearch ] = useState('');
-  const [ filter, setFilter ] = useState<number | null>(null);
-  const [ sorter, setSorter ] = useState('');
-  return (
-    <StyledMenu>
-        <PageTitle>Cardápio</PageTitle>
-        <Searcher 
-          search={search} 
-          setSearch={setSearch}
-        />
-        <StyledFilter>
-          <Filters filter={filter} setFilter={setFilter}/>
-          <Sorter sorter={sorter} setSorter={setSorter}/>
-        </StyledFilter>
-        <Items search={search} filter={filter} sorter={sorter}/>
-    </StyledMenu>
-  )
+	const [ search, setSearch ] = useState('');
+	const [ filter, setFilter ] = useState<number | null>(null);
+	const [ sorter, setSorter ] = useState('');
+	return (
+		<StyledMenu>
+			<PageTitle>Cardápio</PageTitle>
+			<Searcher 
+				search={search} 
+				setSearch={setSearch}
+			/>
+			<StyledFilter>
+				<Filters filter={filter} setFilter={setFilter}/>
+				<Sorter sorter={sorter} setSorter={setSorter}/>
+			</StyledFilter>
+			<Items search={search} filter={filter} sorter={sorter}/>
+		</StyledMenu>
+	);
 }
