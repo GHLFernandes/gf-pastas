@@ -9,15 +9,16 @@ const Title = styled.h3`
   margin-bottom: 30px;
 `;
 
-const Recommended = styled.div`
+const Recommended = styled.ul`
   border-radius: 2px;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   justify-content: space-between;
+  list-style: none;
 `;
 
-const RecommendedItem = styled.div`
+const RecommendedItem = styled.li`
 
 `;
 
@@ -60,8 +61,8 @@ export default function Home() {
       
 			<Recommended>
       {
-        recommended.map(item => 
-          <RecommendedItem>
+        recommended.map((item, index) => 
+          <RecommendedItem key={index}>
             <StyledImg>
               <img src={item.photo} alt={item.title} />
             </StyledImg>
