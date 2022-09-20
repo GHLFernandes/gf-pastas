@@ -10,7 +10,7 @@ const StyledFooter = styled.section`
     display: block;
     text-align: center;
     padding: 10px 20px;
-    margin: 0 auto;
+    margin: 50px auto 0 auto;
 
     ul li {
         display: inline-block;
