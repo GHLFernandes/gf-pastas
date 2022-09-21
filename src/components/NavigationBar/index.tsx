@@ -62,7 +62,7 @@ export default function NavigationBar() {
 
 	return (
 		<StyledNav>
-			<Logo alt='Logo GF-Pastas'/>
+			<Logo/>
 			<List>
 				{routes.map((route, index) => 
 					(
