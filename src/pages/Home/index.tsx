@@ -3,7 +3,7 @@ import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import PageTitle from '@/components/PageTitle';
-import bannerHome from '@/assets/img/nossa_casa.png';
+import bannerHome from '@/assets/img/home/nossa_casa.png';
 
 const Recommended = styled.ul`
   border-radius: 2px;

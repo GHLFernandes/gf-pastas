@@ -51,12 +51,12 @@ export default function NavigationBar() {
 			to: '/',
 		},
 		{
-			label: 'Menu',
+			label: 'Cardápio',
 			to: '/menu',
 		},
 		{
-			label: 'About',
-			to: '/about',
+			label: 'Sobre Nós',
+			to: '/about-us',
 		},
 	];
 
