@@ -78,38 +78,38 @@ const Address = styled.div`
 
 export default function Home() {
 
-  let recommended = [...items];
-  recommended = recommended.sort(() => 0.5 - Math.random()).splice(0,3);
+	let recommended = [...items];
+	recommended = recommended.sort(() => 0.5 - Math.random()).splice(0,3);
 
 	return (
 		<section>
 			<PageTitle>Recomendações da cozinha</PageTitle>
       
 			<Recommended>
-      {
-        recommended.map((item, index) => 
-          <RecommendedItem key={index}>
-            <StyledImg>
-              <img src={item.photo} alt={item.title} />
-            </StyledImg>
+				{
+					recommended.map((item, index) => 
+						<RecommendedItem key={index}>
+							<StyledImg>
+								<img src={item.photo} alt={item.title} />
+							</StyledImg>
 
-            <StyledBtn>
+							<StyledBtn>
               Ver Mais
-            </StyledBtn>
-          </RecommendedItem>
-        )
-      }
+							</StyledBtn>
+						</RecommendedItem>
+					)
+				}
 			</Recommended>
 
-      <PageTitle>Nossa Casa</PageTitle>
+			<PageTitle>Nossa Casa</PageTitle>
 
-      <StyledUs>
-        <img src={bannerHome} alt="GF Pastas"/>
+			<StyledUs>
+				<img src={bannerHome} alt="GF Pastas"/>
 
-        <Address>
+				<Address>
           Rua Tal, 8456 <br /><br /> Brasília, DF
-        </Address>
-      </StyledUs>
+				</Address>
+			</StyledUs>
 		</section>
 	);
 }

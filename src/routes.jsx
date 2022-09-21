@@ -8,20 +8,20 @@ import About from './pages/About';
 import Footer from './components/Footer';
 
 export default function AppRouter() {
-    return(
-        <main>
-            <Router>
-            <NavigationBar />
-                <Routes>
-                    <Route path='/' element={<DefaultPage />} > //nested routes
-                        <Route index element={<Home />} />
-                        <Route path='home' element={<Home />} />
-                        <Route path='menu' element={<Menu />} />
-                        <Route path='about-us' element={<About />} />
-                    </Route>
-                </Routes>
-                <Footer />
-            </Router>
-        </main>
-    );
+	return(
+		<main>
+			<Router>
+				<NavigationBar />
+				<Routes>
+					<Route path='/' element={<DefaultPage />} >
+						<Route index element={<Home />} />
+						<Route path='home' element={<Home />} />
+						<Route path='menu' element={<Menu />} />
+						<Route path='about-us' element={<About />} />
+					</Route>
+				</Routes>
+				<Footer />
+			</Router>
+		</main>
+	);
 }
