@@ -2,12 +2,8 @@ import React from 'react';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
-
-const Title = styled.h3`
-  color: ${style.color.dark};
-  font-size: 3rem;
-  margin-bottom: 30px;
-`;
+import PageTitle from '@/components/PageTitle';
+import bannerHome from '@/assets/img/nossa_casa.png';
 
 const Recommended = styled.ul`
   border-radius: 2px;
@@ -16,6 +12,7 @@ const Recommended = styled.ul`
   gap: 30px;
   justify-content: space-between;
   list-style: none;
+  padding: 0px;
 `;
 
 const RecommendedItem = styled.li`
@@ -49,6 +46,35 @@ const StyledBtn = styled.div`
   }
 `;
 
+const StyledUs = styled.div`
+  margin-bottom: 100px;
+  position: relative;
+  width: 100%;
+
+  img {
+    border-radius: 5px;
+    width: 100%;
+  }
+`;
+
+const Address = styled.div`
+  align-items: center;
+  background-color: ${style.color.dark};
+  border-radius: 5px;
+  bottom: -45px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  height: 100px;
+  justify-content: center;
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  width: 200px;
+`;
+
 
 export default function Home() {
 
@@ -57,7 +83,7 @@ export default function Home() {
 
 	return (
 		<section>
-			<Title>Recomendações da cozinha</Title>
+			<PageTitle>Recomendações da cozinha</PageTitle>
       
 			<Recommended>
       {
@@ -66,7 +92,6 @@ export default function Home() {
             <StyledImg>
               <img src={item.photo} alt={item.title} />
             </StyledImg>
-            {item.title}
 
             <StyledBtn>
               Ver Mais
@@ -75,6 +100,16 @@ export default function Home() {
         )
       }
 			</Recommended>
+
+      <PageTitle>Nossa Casa</PageTitle>
+
+      <StyledUs>
+        <img src={bannerHome} alt="GF Pastas"/>
+
+        <Address>
+          Rua Tal, 8456 <br /><br /> Brasília, DF
+        </Address>
+      </StyledUs>
 		</section>
 	);
 }

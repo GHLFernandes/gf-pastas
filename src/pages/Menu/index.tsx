@@ -20,6 +20,7 @@ export default function Menu() {
 	const [ search, setSearch ] = useState('');
 	const [ filter, setFilter ] = useState<number | null>(null);
 	const [ sorter, setSorter ] = useState('');
+	
 	return (
 		<>
 			<PageTitle>Cardápio</PageTitle>

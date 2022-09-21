@@ -1,7 +1,5 @@
 import React from 'react';
-import NavigationBar from '@/components/NavigationBar';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
@@ -29,14 +27,11 @@ const StyledPage = styled.div`
 export default function DefaultPage() {
   return (
     <>
-        <NavigationBar />
         <Header>A casa da Massa</Header>
 
         <StyledPage>
             <Outlet />
         </StyledPage>
-
-        <Footer />
     </>
   )
 }
