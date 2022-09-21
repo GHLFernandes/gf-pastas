@@ -25,13 +25,13 @@ const StyledPage = styled.div`
 `;
 
 export default function DefaultPage() {
-  return (
-    <>
-        <Header>A casa da Massa</Header>
+	return (
+		<>
+			<Header>A casa da Massa</Header>
 
-        <StyledPage>
-            <Outlet />
-        </StyledPage>
-    </>
-  )
+			<StyledPage>
+				<Outlet />
+			</StyledPage>
+		</>
+	);
 }
