@@ -9,6 +9,12 @@ body {
     font-family: 'Italiana', serif;
 }
 
+#root>main.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
     background-color: #e3e0d6;
