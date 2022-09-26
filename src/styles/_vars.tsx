@@ -14,6 +14,7 @@ const style = {
 		red: '#d73b3b',
 		white: 'white',
 		red_dark: '#c62a2a',
+		darkest_grey: '#70707b',
 	},
 	filters: {
 		pastas: '#d73b3b',

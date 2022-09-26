@@ -152,7 +152,7 @@ export default function Item(props : Props) {
 						{size}g
 					</Portion>
 					<Serving>
-                    Serve {serving} pessoas
+                    Serve {serving} pessoa{serving === 1? '' : 's'}
 					</Serving>
 					<Price>
                     R$ {price.toFixed(2)}

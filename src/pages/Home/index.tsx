@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import style from '@/styles/_vars';
 import PageTitle from '@/components/PageTitle';
 import bannerHome from '@/assets/img/home/nossa_casa.png';
+import { useNavigate } from 'react-router-dom';
 
 const Recommended = styled.ul`
   border-radius: 2px;
@@ -16,7 +17,7 @@ const Recommended = styled.ul`
 `;
 
 const RecommendedItem = styled.li`
-
+  padding: 10px 2%;
 `;
 
 const StyledImg = styled.div`
@@ -25,6 +26,11 @@ const StyledImg = styled.div`
   img {
     border-radius: 8px;
     width: 100%;
+
+  &:hover {
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 3px 5px 2px 0.8px rgba(204, 204, 204, 0.7);
   }
 `;
 
@@ -81,6 +87,12 @@ export default function Home() {
 	let recommended = [...items];
 	recommended = recommended.sort(() => 0.5 - Math.random()).splice(0,3);
 
+	const navigate = useNavigate();
+
+	const redirectDetails = (food: typeof items[0]) => {
+		navigate(`/food/${food.id}`, {state: {food}});
+	};
+
 	return (
 		<section>
 			<PageTitle>Recomendações da cozinha</PageTitle>
@@ -89,12 +101,12 @@ export default function Home() {
 				{
 					recommended.map((item, index) => 
 						<RecommendedItem key={index}>
-							<StyledImg>
+							<StyledImg onClick={() => redirectDetails(item)}>
 								<img src={item.photo} alt={item.title} />
 							</StyledImg>
 
-							<StyledBtn>
-              Ver Mais
+							<StyledBtn onClick={() => redirectDetails(item)} >
+                Ver Mais
 							</StyledBtn>
 						</RecommendedItem>
 					)
