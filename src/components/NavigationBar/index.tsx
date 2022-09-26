@@ -62,7 +62,9 @@ export default function NavigationBar() {
 
 	return (
 		<StyledNav>
-			<Logo/>
+			<Link to={routes[0].to}>
+				<Logo/>
+			</Link>
 			<List>
 				{routes.map((route, index) => 
 					(
