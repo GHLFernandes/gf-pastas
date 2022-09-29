@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Item from './Item';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
+import { Menu } from '@/types/Foods';
 
 interface Props {
   search: string;
@@ -34,7 +35,7 @@ export default function Items(props: Props) {
 		return true;
 	};
 
-	const handleSort = (newList: typeof items) => {
+	const handleSort = (newList: Menu) => {
 		switch(sorter){
 		case 'portion':
 			return newList.sort((a,b) => a.size > b.size ? 1 : -1);

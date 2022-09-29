@@ -5,6 +5,7 @@ import style from '@/styles/_vars';
 import PageTitle from '@/components/PageTitle';
 import bannerHome from '@/assets/img/home/nossa_casa.png';
 import { useNavigate } from 'react-router-dom';
+import { Food } from '@/types/Foods';
 
 const Recommended = styled.ul`
   border-radius: 2px;
@@ -89,7 +90,7 @@ export default function Home() {
 
 	const navigate = useNavigate();
 
-	const redirectDetails = (food: typeof items[0]) => {
+	const redirectDetails = (food: Food) => {
 		navigate(`/food/${food.id}`, {state: {food}});
 	};
 
