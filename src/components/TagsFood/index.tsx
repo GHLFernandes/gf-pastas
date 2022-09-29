@@ -2,10 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
-import items from '@/data/menu.json';
 import { Food } from '@/types/Foods';
-
-type Props = typeof items[0];
 
 const Tags = styled.div`
     display: flex;

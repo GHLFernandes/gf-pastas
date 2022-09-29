@@ -4,6 +4,8 @@ import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import TagsFood from '@/components/TagsFood';
+import NotFound from '../NotFound';
+import DefaultPage from '@/components/DefaultPage';
 
 const StyledFood = styled.div`
     align-items: center;
@@ -60,34 +62,36 @@ export default function Food() {
 	const food  = items.find(item => item.id === Number(id));
 
 	if(!food){
-		return '';
+		return <NotFound />;
 	}
 
 	const navigate = useNavigate();
 	return (
-		<StyledFood>
-			<Back>
-				<button onClick={(() => navigate(-1))}>
-					{'< Voltar'}
-				</button>
-			</Back>
+		<DefaultPage>
+			<StyledFood>
+				<Back>
+					<button onClick={(() => navigate(-1))}>
+						{'< Voltar'}
+					</button>
+				</Back>
 
-			<Container>
-				<Titulo>
-					{food.title}
-				</Titulo>
-				<StyledImg>
-					<img src={food.photo} alt={food.title} />
-				</StyledImg>
+				<Container>
+					<Titulo>
+						{food.title}
+					</Titulo>
+					<StyledImg>
+						<img src={food.photo} alt={food.title} />
+					</StyledImg>
 
-				<Contents>
-					<Description>
-						{food.description}
-					</Description>
-					<TagsFood {...food}/>
-				</Contents>
-			</Container>
-		</StyledFood>
+					<Contents>
+						<Description>
+							{food.description}
+						</Description>
+						<TagsFood {...food}/>
+					</Contents>
+				</Container>
+			</StyledFood>
+		</DefaultPage>
 
 	);
 }

@@ -24,13 +24,14 @@ const StyledPage = styled.div`
 }
 `;
 
-export default function DefaultPage() {
+export default function DefaultPage({ children } : { children?: React.ReactNode}) {
 	return (
 		<>
 			<Header>A casa da Massa</Header>
 
 			<StyledPage>
 				<Outlet />
+				{children}
 			</StyledPage>
 		</>
 	);

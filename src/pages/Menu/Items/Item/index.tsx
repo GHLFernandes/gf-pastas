@@ -4,13 +4,22 @@ import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
 import TagsFood from '@/components/TagsFood';
 import { Food } from '@/types/Foods';
+import { useNavigate } from 'react-router-dom';
 
 const StyledItem = styled.div`
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    padding: 20px;
+    transition: .2s ease-in;
+    width: 90%;
     border-bottom: 1px solid ${style.color.grey};
 
+    &:hover {
+      background-color: ${style.color.grey};
+    }
 `;
 
 const Image = styled.div`
@@ -61,10 +70,11 @@ const Title = styled.div`
 `;
 
 export default function Item(props : Food) {
-	const {title, description, photo} = props;
-    
+	const {id, title, description, photo} = props;
+  
+	const navigate = useNavigate();
 	return (
-		<StyledItem>
+		<StyledItem onClick={() => navigate(`/food/${id}`)}>
 			<Image>
 				<img src={photo} alt={title}/>
 			</Image>
