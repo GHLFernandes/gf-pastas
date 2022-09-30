@@ -1,6 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import bp from '@/styles/_breakpoints';
 import style from '@/styles/_vars';
+
+const StyledSection = styled.section`
+	@media (max-width: ${bp.mobile}) {
+		text-align: center;
+	}
+`;
 
 const Text = styled.h3`
     font-size: 2rem;
@@ -10,10 +17,10 @@ const Text = styled.h3`
 
 export default function PageTitle({children} : {children:string}) {
 	return (
-		<section>
+		<StyledSection>
 			<Text>
 				{children}
 			</Text>
-		</section>
+		</StyledSection>
 	);
 }

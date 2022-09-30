@@ -2,6 +2,7 @@ import React from 'react';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
+import bp from '@/styles/_breakpoints';
 import PageTitle from '@/components/PageTitle';
 import bannerHome from '@/assets/img/home/nossa_casa.png';
 import { useNavigate } from 'react-router-dom';
@@ -15,6 +16,11 @@ const Recommended = styled.ul`
   justify-content: space-between;
   list-style: none;
   padding: 0px;
+
+  @media (max-width: ${bp.mobile}) {
+		padding: 20px ${style.hPadding_mobile};
+		justify-content: center;
+	}
 `;
 
 const RecommendedItem = styled.li`

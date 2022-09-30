@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Item from './Item';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
+import bp from '@/styles/_breakpoints';
 import { Menu } from '@/types/Foods';
 
 interface Props {
@@ -16,6 +17,17 @@ const StyledItems = styled.div`
     flex-wrap: wrap;
     gap: 20px;
     width: 100%;
+
+	@media (max-width: ${bp.mobile}) {
+		align-content: center;
+	}
+
+	@media (min-width: ${bp.desktop_xsm}) and (max-width: ${bp.desktop_sm}) {
+		align-content: center;	
+	}
+	@media (min-width: ${bp.desktop_sm}) and (max-width: ${bp.desktop_md}) {
+		align-content: center;
+		}
 
 `;
 
