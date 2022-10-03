@@ -12,7 +12,6 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
-
     z-index: 20;
   }
 `;
@@ -21,7 +20,7 @@ const StyledBurger = styled.div<Props>`
   width: 2rem;
   height: 2rem;
   position: fixed;
-  top: 30px;
+  top: 20px;
   right: 30px;
   z-index: 20;
   display: none;

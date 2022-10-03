@@ -14,6 +14,7 @@ const StyledHeader = styled.header`
   height: 300px;
   padding: 0 ${style.hPadding};
   position: relative;
+  margin-top: 65px;
 
   ::before {
     position: absolute;

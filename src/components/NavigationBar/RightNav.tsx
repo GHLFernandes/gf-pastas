@@ -14,6 +14,7 @@ const List = styled.ul<Props>`
     list-style: none;
     display: flex;
     flex-flow: row nowrap;
+    margin-top: 2px;
 
     li {
       padding: 18px 10px;
