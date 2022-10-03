@@ -8,11 +8,13 @@ import Footer from './components/Footer';
 import DefaultPage from '@/components/DefaultPage';
 import NotFound from './pages/NotFound';
 import Food from './pages/Food';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function AppRouter() {
 	return(
 		<main className='container'>
 			<Router>
+				<ScrollToTop />
 				<NavigationBar />
 				<Routes>
 					<Route path='/' element={<DefaultPage />} >
