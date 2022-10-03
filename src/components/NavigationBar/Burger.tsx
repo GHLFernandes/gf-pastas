@@ -8,13 +8,13 @@ export interface Props {
 }
 
 const StyledDiv = styled.div`
-@media (max-width: ${bp.mobile}) {
-  display: flex;
-  justify-content: space-around;
-  flex-flow: column nowrap;
+  @media (max-width: ${bp.mobile}) {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: column nowrap;
 
-  z-index: 20;
-}
+    z-index: 20;
+  }
 `;
 
 const StyledBurger = styled.div<Props>`

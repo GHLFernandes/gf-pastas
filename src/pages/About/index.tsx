@@ -4,17 +4,33 @@ import styled from 'styled-components';
 import home from '@/assets/img/about/casa.png';
 import pasta1 from '@/assets/img/about/massa1.png';
 import pasta2 from '@/assets/img/about/massa2.png';
-
+import bp from '@/styles/_breakpoints';
 
 const AboutUS = styled.div`
     display: flex;
     gap: 20px;
     margin-bottom: 50px;
 
+    img {
+        border-radius: 5px;
+        width: 100%;
+      }
+
+      @media (max-width: ${bp.mobile}) {
+        img {
+            width: 80%;
+            height: fit-content;
+          }
+      }
+    
+`;
+
+const Desc = styled.section`
+
+    display: inline-block;
 
     p {
         font-family: 'Josefin Sans', sans-serif;
-        display: flex;
         flex-direction: column;
         justify-content: center;
         font-size: 1.5rem;
@@ -22,13 +38,14 @@ const AboutUS = styled.div`
         text-align: justify;
     }
 
-    img {
-        border-radius: 5px;
-        width: 100%;
+    @media (max-width: ${bp.mobile}) {
+        img {
+            width: 80%;
+            height: fit-content;
+          }
       }
-
-    
 `;
+
 
 const Images = styled.div`
     display: flex;
@@ -59,7 +76,7 @@ export default function About() {
 			<AboutUS>
 				<img src={home} alt="Casa GF-Pastas" />
                 
-				<div>
+				<Desc>
 					<p>
                         Nós do GF Pastas oferecemos a vocês, nossos queridos clientes, a Massa Italiana Caseira mais saborosa e sofisticada de Brasília! Prezamos pelos ingredientes tradicionais da culinária Italiana, frescos e de excelente qualidade para que sua experiência seja ainda mais intensa!
 					</p>
@@ -69,7 +86,7 @@ export default function About() {
 					<p>
                         Para acompanhar as massas italianas, GF Pastas possui uma reserva de vinhos especiais, que harmonizam perfeitamente com o seu parto, seja carne ou massa!
 					</p>
-				</div>
+				</Desc>
 			</AboutUS>
 
 			<Images>
