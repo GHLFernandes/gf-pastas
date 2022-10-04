@@ -20,6 +20,8 @@ const RowFilters = styled.div`
 
   @media (max-width: ${bp.mobile}) {
     gap: 5px;
+    margin: 0 auto;
+    justify-content: center;
 	}
 `;
 

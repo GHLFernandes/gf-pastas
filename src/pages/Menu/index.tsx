@@ -5,6 +5,7 @@ import Filters from './Filters';
 import Sorter from './Sorter';
 import Items from './Items';
 import styled from 'styled-components';
+import bp from '@/styles/_breakpoints';
 
 const StyledFilter = styled.div`
   align-items: center;
@@ -13,6 +14,11 @@ const StyledFilter = styled.div`
   justify-content: space-between;
   margin-bottom: 30px;
   width: 100%;
+
+
+  @media (max-width: ${bp.mobile}) {
+	justify-content: center;
+  }
 `;
 
 

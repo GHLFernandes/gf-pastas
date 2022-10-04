@@ -35,8 +35,6 @@ const BtnSorter = styled.button`
         background-color: ${style.color.blue};
         color: white;
       }
-
-      
 `;
 
 const SorterOptions = styled.div`

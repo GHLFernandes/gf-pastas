@@ -14,7 +14,7 @@ const StyledFood = styled.div`
     flex: 1;
     flex-direction: column;
     justify-content: center;
-    padding: 0 ${style.hPadding_md};
+   
 `;
 const Back = styled.div`
     display: flex;
