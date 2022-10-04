@@ -14,7 +14,7 @@ const StyledItem = styled.div`
     flex-wrap: wrap;
     padding: 20px;
     transition: .2s ease-in;
-    width: 90%;
+    width: 100%;
     border-bottom: 1px solid ${style.color.grey};
 
     &:hover {

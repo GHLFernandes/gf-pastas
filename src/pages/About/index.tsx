@@ -17,8 +17,8 @@ const AboutUS = styled.div`
       }
 
       @media (max-width: ${bp.mobile}) {
+        display: block;
         img {
-            width: 80%;
             height: fit-content;
           }
       }
