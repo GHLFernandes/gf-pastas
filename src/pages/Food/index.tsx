@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
+import bp from '@/styles/_breakpoints';
 import TagsFood from '@/components/TagsFood';
 import NotFound from '../NotFound';
 import DefaultPage from '@/components/DefaultPage';
@@ -28,6 +29,12 @@ const Back = styled.div`
         font-size: 1.5rem;
         font-weight: bold;
     }
+
+	@media (max-width: ${bp.mobile}) {
+		padding: 2px ${style.hPadding_mobile};
+		width: 100%;
+		
+	}
 `;
 const Container = styled.section`
 	align-items: center;
@@ -40,9 +47,14 @@ const Titulo = styled.h1`
 `;
 const StyledImg = styled.div`
 	width: 400px;
+
 	img {
-	border-radius: 8px;
-	width: 100%;
+		border-radius: 8px;
+		width: 100%;
+	}
+
+	@media (max-width: ${bp.mobile}) {
+			width: 95%;
 	}
 `;
 const Contents = styled.div`
@@ -68,12 +80,12 @@ export default function Food() {
 	const navigate = useNavigate();
 	return (
 		<DefaultPage>
+			<Back>
+				<button onClick={(() => navigate(-1))}>
+					{'< Voltar'}
+				</button>
+			</Back>
 			<StyledFood>
-				<Back>
-					<button onClick={(() => navigate(-1))}>
-						{'< Voltar'}
-					</button>
-				</Back>
 
 				<Container>
 					<Titulo>

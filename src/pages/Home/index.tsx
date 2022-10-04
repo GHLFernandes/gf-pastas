@@ -21,6 +21,11 @@ const Recommended = styled.ul`
 		padding: 20px ${style.hPadding_mobile};
 		justify-content: center;
 	}
+
+  @media (max-width: ${bp.desktop_xsm}) {
+		padding: 20px ${style.hPadding_sm};
+		justify-content: center;
+	}
 `;
 
 const RecommendedItem = styled.li`

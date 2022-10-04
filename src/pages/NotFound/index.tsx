@@ -7,6 +7,7 @@ import style from '@/styles/_vars';
 const StyledNotFound = styled.div`
     align-items: center;
     display: flex;
+    margin-top: 90px;
     flex: 1;
     flex-direction: column;
     justify-content: center;

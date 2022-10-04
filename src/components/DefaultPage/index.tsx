@@ -9,7 +9,7 @@ const StyledPage = styled.div`
 
   padding: 15px ${style.hPadding};
 
-  @media (max-width: ${bp.desktop_xsm}) {
+  @media (max-width: ${bp.mobile}) {
     padding: 50px ${style.hPadding_mobile};
   }
 

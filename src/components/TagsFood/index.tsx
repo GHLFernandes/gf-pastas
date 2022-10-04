@@ -12,7 +12,7 @@ const Tags = styled.div`
     max-width: 700px;
 
     @media (max-width: ${bp.desktop_xsm}) {
-        justify-content: flex-end;
+        justify-content: flex-start;
     }
 
     @media (max-width: ${bp.mobile}) {

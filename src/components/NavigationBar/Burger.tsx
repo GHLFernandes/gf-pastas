@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import RightNav from './RightNav';
 import bp from '@/styles/_breakpoints';
@@ -58,7 +59,12 @@ const StyledBurger = styled.div<Props>`
 
 const Burger = () => {
 	const [open, setOpen] = useState(false);
-  
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		setOpen(false);
+	}, [pathname]);
+
 	return (
 		<StyledDiv>
 			<StyledBurger open={open} onClick={() => setOpen(!open)}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import style from '../../../styles/_vars';
+import bp from '../../../styles/_breakpoints';
 
 import filters from './filters.json';
 
@@ -16,6 +17,10 @@ const RowFilters = styled.div`
   gap: 24px;
   flex-wrap: wrap;
   margin: 20px 0;
+
+  @media (max-width: ${bp.mobile}) {
+    gap: 5px;
+	}
 `;
 
 const BtnFilter = styled.button`

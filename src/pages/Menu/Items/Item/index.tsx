@@ -20,6 +20,11 @@ const StyledItem = styled.div`
     &:hover {
       background-color: ${style.color.grey};
     }
+
+    @media (max-width: ${bp.mobile}) {
+      padding: 20px 0;
+    }
+
 `;
 
 const Image = styled.div`

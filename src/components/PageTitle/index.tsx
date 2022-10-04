@@ -7,6 +7,10 @@ const StyledSection = styled.section`
 	@media (max-width: ${bp.mobile}) {
 		text-align: center;
 	}
+
+	@media (max-width: ${bp.desktop_xsm}) {
+		text-align: center;
+	}
 `;
 
 const Text = styled.h3`

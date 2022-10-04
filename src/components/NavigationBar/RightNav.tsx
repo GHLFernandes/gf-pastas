@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
@@ -30,7 +30,7 @@ const List = styled.ul<Props>`
       right: 0;
       padding: 0;
       height: 100vh;
-      width: 300px;
+      width: 200px;
       padding-top: 4.5rem;
       margin-top: 0;
       transition: transform 0.3s ease-in-out;
@@ -79,12 +79,22 @@ const StyledLink = styled.li`
 
 const RightNav = ({ open }: {open: boolean}) => {
 
+	const [ isOpen, setIsOpen ] = useState(open);
+
+	useEffect(() => {
+		setIsOpen(open);
+	}, [open]);
+
+	const handleBurguer = () => {
+		setIsOpen(!open);
+	};
+
 	return (
-		<List open={open}>
+		<List open={isOpen}>
 			{routes.map((route, index) => 
 				(
 					<StyledLink key={index}>
-						<Link to={route.to}>
+						<Link to={route.to} onClick={handleBurguer}>
 							{route.label}
 						</Link>
 					</StyledLink>
