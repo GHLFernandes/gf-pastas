@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
@@ -8,15 +8,16 @@ import TagsFood from '@/components/TagsFood';
 import NotFound from '../NotFound';
 import DefaultPage from '@/components/DefaultPage';
 
-const StyledFood = styled.div`
+const StyledFood = memo(styled.div`
     align-items: center;
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
    
-`;
-const Back = styled.div`
+`);
+
+const Back = memo(styled.div`
     display: flex;
     justify-content: flex-start;
     width: 95%;
@@ -31,21 +32,27 @@ const Back = styled.div`
     }
 
 	@media (max-width: ${bp.mobile}) {
-		padding: 2px ${style.hPadding_mobile};
 		width: 100%;
 		
 	}
-`;
-const Container = styled.section`
+`);
+const Container = memo(styled.section`
 	align-items: center;
     display: flex;
     flex-direction: column;
     gap: 20px;
-`;
-const Titulo = styled.h1`
+`);
+const Titulo = memo(styled.h1`
+	text-align: justify;
 	font-size: 3rem;
-`;
-const StyledImg = styled.div`
+
+	@media (max-width: ${bp.mobile}) {
+		font-size: 2rem;
+		text-align: justify;
+	}
+
+`);
+const StyledImg = memo(styled.div`
 	width: 400px;
 
 	img {
@@ -56,19 +63,23 @@ const StyledImg = styled.div`
 	@media (max-width: ${bp.mobile}) {
 			width: 95%;
 	}
-`;
-const Contents = styled.div`
+`);
+const Contents = memo(styled.div`
 	align-items: center;
 	display: flex;
 	flex-direction: column;
-`;
-const Description = styled.p`
+`);
+const Description = memo(styled.p`
 	color: ${style.color.darkest_grey};
 	font-size: 1.5rem;
 	font-weight: bold;
-`;
 
-export default function Food() {
+	@media (max-width: ${bp.mobile}) {
+		text-align: justify;
+	}
+`);
+
+function Food() {
 
 	const { id } = useParams();
 	const food  = items.find(item => item.id === Number(id));
@@ -107,3 +118,5 @@ export default function Food() {
 
 	);
 }
+
+export default memo(Food);

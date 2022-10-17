@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import HeadImg from '@/assets/img/menu/header.png';
 import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
 
-const StyledHeader = styled.header`
+const StyledHeader = memo(styled.header`
   background-image: url(${HeadImg});
   background-size: cover;
   background-repeat: no-repeat;
@@ -54,16 +54,16 @@ const StyledHeader = styled.header`
   @media (min-width: ${bp.desktop_sm}) and (max-width: ${bp.desktop_md}) {
     padding: 0px ${style.hPadding_md};
   }
-`;
+`);
 
-const HeaderText = styled.div`
+const HeaderText = memo(styled.div`
   color: white;
   font-size: 4.5rem;
   min-width: 400px;
   width: 40%;
-`;
+`);
 
-export default function Header({children} : {children: string}) {
+function Header({children} : {children: string}) {
 	return (
 		<StyledHeader>
 			<HeaderText>
@@ -72,3 +72,5 @@ export default function Header({children} : {children: string}) {
 		</StyledHeader>
 	);
 }
+
+export default memo(Header);

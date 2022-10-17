@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { ReactComponent as NotFoundImg} from '@/assets/img/not_found.svg';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 
-const StyledNotFound = styled.div`
+const StyledNotFound = memo(styled.div`
     align-items: center;
     display: flex;
     margin-top: 90px;
@@ -12,9 +12,9 @@ const StyledNotFound = styled.div`
     flex-direction: column;
     justify-content: center;
     padding: 0 ${style.hPadding_md};
-`;
+`);
 
-const Back = styled.div`
+const Back = memo(styled.div`
     display: flex;
     justify-content: flex-start;
     width: 95%;
@@ -27,9 +27,9 @@ const Back = styled.div`
         font-size: 1.5rem;
         font-weight: bold;
     }
-`;
+`);
 
-export default function NotFound() {
+function NotFound() {
 
 	const navigate = useNavigate();
 
@@ -44,3 +44,5 @@ export default function NotFound() {
 		</StyledNotFound>
 	);
 }
+
+export default memo(NotFound);

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, memo} from 'react';
 import PageTitle from '@/components/PageTitle';
 import Searcher from '@/pages/Menu/Searcher';
 import Filters from './Filters';
@@ -7,7 +7,7 @@ import Items from './Items';
 import styled from 'styled-components';
 import bp from '@/styles/_breakpoints';
 
-const StyledFilter = styled.div`
+const StyledFilter = memo(styled.div`
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -19,10 +19,9 @@ const StyledFilter = styled.div`
   @media (max-width: ${bp.mobile}) {
 	justify-content: center;
   }
-`;
+`);
 
-
-export default function Menu() {
+function Menu() {
 
 	const [ search, setSearch ] = useState('');
 	const [ filter, setFilter ] = useState<number | null>(null);
@@ -43,3 +42,5 @@ export default function Menu() {
 		</>
 	);
 }
+
+export default memo(Menu);

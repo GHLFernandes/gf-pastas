@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 
-const StyledFooter = styled.section`
+const StyledFooter = memo(styled.section`
     align-items: center;
     background: ${style.color.red};
     color: ${style.color.white};
@@ -21,14 +21,14 @@ const StyledFooter = styled.section`
     ul li:last-child {
         margin-right: 0;
     }
-`;
+`);
 
-const Footer = () => {
+function Footer () {
 	return (<StyledFooter>
 		<p>
                 Desenvolvido por GFernandes.
 		</p>
 	</StyledFooter>);
-};
+}
 
-export default Footer;
+export default memo(Footer);

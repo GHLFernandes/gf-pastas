@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 import Item from './Item';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ interface Props {
   sorter: string;
 }
 
-const StyledItems = styled.div`
+const StyledItems = memo(styled.div`
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -29,9 +29,9 @@ const StyledItems = styled.div`
 		align-content: center;
 		}
 
-`;
+`);
 
-export default function Items(props: Props) {
+function Items(props: Props) {
 
 	const [ list, setList ] = useState(items);
 	const { search, filter, sorter } = props;
@@ -77,3 +77,5 @@ export default function Items(props: Props) {
 
 	);
 }
+
+export default memo(Items);

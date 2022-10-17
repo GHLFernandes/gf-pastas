@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import RightNav from './RightNav';
@@ -8,16 +8,16 @@ export interface Props {
  open: boolean;
 }
 
-const StyledDiv = styled.div`
+const StyledDiv = memo(styled.div`
   @media (max-width: ${bp.mobile}) {
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
     z-index: 20;
   }
-`;
+`);
 
-const StyledBurger = styled.div<Props>`
+const StyledBurger = memo(styled.div<Props>`
   width: 2rem;
   height: 2rem;
   position: fixed;
@@ -55,7 +55,7 @@ const StyledBurger = styled.div<Props>`
       transform: ${({ open }) => open ? 'rotate(-45deg)' : 'rotate(0)'};
     }
   }
-`;
+`);
 
 const Burger = () => {
 	const [open, setOpen] = useState(false);
@@ -77,4 +77,4 @@ const Burger = () => {
 	);
 };
 
-export default Burger;
+export default memo(Burger);

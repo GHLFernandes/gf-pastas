@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {memo, useState} from 'react';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import options from './options.json';
@@ -10,34 +10,35 @@ interface Props {
     setSorter: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const BtnSorter = styled.button`
-    align-items: center;
-    background-color: ${style.color.grey};
-    border: none;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    display: flex;
-    font-size: 1rem;
-    font-weight: bold;
-    height: 40px;
-    justify-content: space-between;
-    min-width: 240px;
-    padding-left: 40px;
-    padding-right: 15px;
-    position: relative;
-    
-    &:hover {
-        background-color: ${style.color.grey_hover};
-        cursor: pointer;
-    }
+const BtnSorter = memo(styled.button`
+        align-items: center;
+        background-color: ${style.color.grey};
+        border: none;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        display: flex;
+        font-size: 1rem;
+        font-weight: bold;
+        height: 40px;
+        justify-content: space-between;
+        min-width: 240px;
+        padding-left: 40px;
+        padding-right: 15px;
+        position: relative;
+        
+        &:hover {
+            background-color: ${style.color.grey_hover};
+            cursor: pointer;
+        }
 
-    &.--active {
-        background-color: ${style.color.blue};
-        color: white;
-      }
-`;
+        &.--active {
+            background-color: ${style.color.blue};
+            color: white;
+        }
+    `
+);
 
-const SorterOptions = styled.div`
+const SorterOptions = memo(styled.div`
     display: none;
     position: absolute;
     left: 0;
@@ -48,9 +49,9 @@ const SorterOptions = styled.div`
     &.--active{
         display: flex !important;
     }
-`;
+`);
 
-const SorterOption = styled.div`
+const SorterOption = memo(styled.div`
     align-items: center;
     background-color: ${style.color.grey};
     border-top: 2px solid ${style.color.light_grey};
@@ -67,12 +68,12 @@ const SorterOption = styled.div`
         cursor: pointer;
         color: white;
     }
-`;
+`);
 
-export default function Sorter({sorter, setSorter} : Props) {
+function Sorter({sorter, setSorter} : Props) {
 
 	const [open, setOpen] = useState(false);
-	const [nameSorter, setNameSorter] = useState('');
+	const [nameSorter, setNameSorter] = useState(sorter);
 
 	const handleSorter = (op: typeof options[0]) => {
 		setSorter(op.value);
@@ -87,7 +88,7 @@ export default function Sorter({sorter, setSorter} : Props) {
 		>
 			<span>{nameSorter || 'Ordenar por'}</span>
 			{
-				open?<MdKeyboardArrowUp size={20}/>: <MdKeyboardArrowDown size={20}/>
+				open?<MdKeyboardArrowUp size={20}/>:<MdKeyboardArrowDown size={20}/>
 			}
 			<SorterOptions 
 				className={open?'--active':''}
@@ -104,3 +105,5 @@ export default function Sorter({sorter, setSorter} : Props) {
 		</BtnSorter>
 	);
 }
+
+export default memo(Sorter);

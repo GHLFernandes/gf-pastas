@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Header from '@/components/Header';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
 
-const StyledPage = styled.div`
+const StyledPage = memo(styled.div`
 
   padding: 15px ${style.hPadding};
 
@@ -22,9 +22,9 @@ const StyledPage = styled.div`
   }
 
 }
-`;
+`);
 
-export default function DefaultPage({ children } : { children?: React.ReactNode}) {
+function DefaultPage({ children } : { children?: React.ReactNode}) {
 	return (
 		<>
 			<Header>A casa da Massa</Header>
@@ -36,3 +36,5 @@ export default function DefaultPage({ children } : { children?: React.ReactNode}
 		</>
 	);
 }
+
+export default memo(DefaultPage);

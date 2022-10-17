@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
@@ -8,7 +8,7 @@ import bannerHome from '@/assets/img/home/nossa_casa.png';
 import { useNavigate } from 'react-router-dom';
 import { Food } from '@/types/Foods';
 
-const Recommended = styled.ul`
+const Recommended = memo(styled.ul`
   border-radius: 2px;
   display: flex;
   flex-wrap: wrap;
@@ -26,13 +26,13 @@ const Recommended = styled.ul`
 		padding: 20px ${style.hPadding_sm};
 		justify-content: center;
 	}
-`;
+`);
 
-const RecommendedItem = styled.li`
+const RecommendedItem = memo(styled.li`
   padding: 10px 2%;
-`;
+`);
 
-const StyledImg = styled.div`
+const StyledImg = memo(styled.div`
   width: 300px;
   margin-bottom: 10px;
   img {
@@ -44,9 +44,9 @@ const StyledImg = styled.div`
     border-radius: 8px;
     box-shadow: 3px 5px 2px 0.8px rgba(204, 204, 204, 0.7);
   }
-`;
+`);
 
-const StyledBtn = styled.div`
+const StyledBtn = memo(styled.div`
   background-color: ${style.color.red};
   border: none;
   border-radius: 5px;
@@ -62,9 +62,9 @@ const StyledBtn = styled.div`
   &:hover {
     background-color: ${style.color.red_dark};
   }
-`;
+`);
 
-const StyledUs = styled.div`
+const StyledUs = memo(styled.div`
   margin-bottom: 100px;
   position: relative;
   width: 100%;
@@ -73,9 +73,9 @@ const StyledUs = styled.div`
     border-radius: 5px;
     width: 100%;
   }
-`;
+`);
 
-const Address = styled.div`
+const Address = memo(styled.div`
   align-items: center;
   background-color: ${style.color.dark};
   border-radius: 5px;
@@ -91,10 +91,9 @@ const Address = styled.div`
   left: 0;
   right: 0;
   width: 200px;
-`;
+`);
 
-
-export default function Home() {
+function Home() {
 
 	let recommended = [...items];
 	recommended = recommended.sort(() => 0.5 - Math.random()).splice(0,3);
@@ -137,3 +136,5 @@ export default function Home() {
 		</section>
 	);
 }
+
+export default memo(Home);

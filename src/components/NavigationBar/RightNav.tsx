@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
@@ -10,14 +10,14 @@ export interface Props {
   open: boolean;
  }
 
-const List = styled.ul<Props>`
+const List = memo(styled.ul<Props>`
     list-style: none;
     display: flex;
     flex-flow: row nowrap;
     margin-top: 2px;
 
     li {
-      padding: 18px 10px;
+      padding: 18px 20px;
     }
 
 
@@ -44,9 +44,9 @@ const List = styled.ul<Props>`
         }
       }
     }
-`;
+`);
 
-const StyledLink = styled.li`
+const StyledLink = memo(styled.li`
 
 	a {
       color: ${style.color.dark};
@@ -75,7 +75,7 @@ const StyledLink = styled.li`
             }
           }
     }
-`;
+`);
 
 const RightNav = ({ open }: {open: boolean}) => {
 
@@ -104,4 +104,4 @@ const RightNav = ({ open }: {open: boolean}) => {
 	);
 };
 
-export default RightNav;
+export default memo(RightNav);

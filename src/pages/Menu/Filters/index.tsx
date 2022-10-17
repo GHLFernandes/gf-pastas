@@ -1,18 +1,18 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styled from 'styled-components';
 import style from '../../../styles/_vars';
 import bp from '../../../styles/_breakpoints';
 
 import filters from './filters.json';
 
-const StyledFilters = styled.div`
+const StyledFilters = memo(styled.div`
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
   margin: 20px 0;
-`;
+`);
 
-const RowFilters = styled.div`
+const RowFilters = memo(styled.div`
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
@@ -23,9 +23,9 @@ const RowFilters = styled.div`
     margin: 0 auto;
     justify-content: center;
 	}
-`;
+`);
 
-const BtnFilter = styled.button`
+const BtnFilter = memo(styled.button`
   align-items: center;
   background-color: ${style.color.grey};
   border: none;
@@ -47,7 +47,7 @@ const BtnFilter = styled.button`
     color: white;
   }s
   
-`;
+`);
 
 type IOption = typeof filters[0];
 
@@ -56,7 +56,7 @@ interface Props {
   setFilter: React.Dispatch<React.SetStateAction<number | null>>
 }
 
-export default function Filters(props : Props) {
+function Filters(props : Props) {
 
 	const selectFilter = (op:IOption) => {
 		if(props.filter === op.id) return props.setFilter(null);
@@ -78,3 +78,5 @@ export default function Filters(props : Props) {
 		</StyledFilters>
 	);
 }
+
+export default memo(Filters);

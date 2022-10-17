@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo} from '@/assets/img/logo.svg';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import bp from '@/styles/_breakpoints';
 import Burger from './Burger';
 import routes from '@/_routes';
 
-const Nav = styled.nav`
+const Nav = memo(styled.nav`
     position: fixed;
     top: 0;
 	padding: 0 ${style.hPadding};
@@ -39,7 +39,7 @@ const Nav = styled.nav`
 	.logo {
 		margin-top: 5px;
 	}
-`;
+`);
 
 const Navbar = () => {
 	return (
@@ -52,4 +52,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default memo(Navbar);

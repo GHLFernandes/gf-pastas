@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import bp from '@/styles/_breakpoints';
 import style from '@/styles/_vars';
 
-const StyledSection = styled.section`
+const StyledSection = memo(styled.section`
 	@media (max-width: ${bp.mobile}) {
 		text-align: center;
 	}
@@ -11,15 +11,15 @@ const StyledSection = styled.section`
 	@media (max-width: ${bp.desktop_xsm}) {
 		text-align: center;
 	}
-`;
+`);
 
-const Text = styled.h3`
+const Text = memo(styled.h3`
     font-size: 2rem;
     margin-bottom: 30px;
     color: ${style.color.dark}
-`;
+`);
 
-export default function PageTitle({children} : {children:string}) {
+function PageTitle({children} : {children:string}) {
 	return (
 		<StyledSection>
 			<Text>
@@ -28,3 +28,5 @@ export default function PageTitle({children} : {children:string}) {
 		</StyledSection>
 	);
 }
+
+export default memo(PageTitle);

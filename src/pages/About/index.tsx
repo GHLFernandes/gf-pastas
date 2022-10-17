@@ -1,12 +1,12 @@
 import PageTitle from '@/components/PageTitle';
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import home from '@/assets/img/about/casa.png';
 import pasta1 from '@/assets/img/about/massa1.png';
 import pasta2 from '@/assets/img/about/massa2.png';
 import bp from '@/styles/_breakpoints';
 
-const AboutUS = styled.div`
+const AboutUS = memo(styled.div`
     display: flex;
     gap: 20px;
     margin-bottom: 50px;
@@ -23,9 +23,9 @@ const AboutUS = styled.div`
           }
       }
     
-`;
+`);
 
-const Desc = styled.section`
+const Desc = memo(styled.section`
 
     display: inline-block;
 
@@ -44,18 +44,18 @@ const Desc = styled.section`
             height: fit-content;
           }
       }
-`;
+`);
 
 
-const Images = styled.div`
+const Images = memo(styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-between;
 
-`;
+`);
 
-const Image = styled.div`
+const Image = memo(styled.div`
     width: 500px;
 
     img {
@@ -63,11 +63,11 @@ const Image = styled.div`
         width: 100%;
       }
 
-`;
+`);
 
 const imgs = [pasta1, pasta2];
 
-export default function About() {
+function About() {
 
 	return (
 		<section>
@@ -99,3 +99,5 @@ export default function About() {
 		</section>
 	);
 }
+
+export default memo(About);

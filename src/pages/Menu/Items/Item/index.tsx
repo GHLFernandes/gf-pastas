@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
@@ -6,7 +6,7 @@ import TagsFood from '@/components/TagsFood';
 import { Food } from '@/types/Foods';
 import { useNavigate } from 'react-router-dom';
 
-const StyledItem = styled.div`
+const StyledItem = memo(styled.div`
     align-items: center;
     border-radius: 10px;
     cursor: pointer;
@@ -25,9 +25,9 @@ const StyledItem = styled.div`
       padding: 20px 0;
     }
 
-`;
+`);
 
-const Image = styled.div`
+const Image = memo(styled.div`
     min-width: 240px;
     margin: 0 auto;
     text-align: center;
@@ -41,9 +41,9 @@ const Image = styled.div`
         border-radius: 8px;
         width: 100%;
     }
-`;
+`);
 
-const Description = styled.div`
+const Description = memo(styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -56,9 +56,9 @@ const Description = styled.div`
         margin-top: 20px;
         padding: 0;
     }
-`;
+`);
 
-const Title = styled.div`
+const Title = memo(styled.div`
   h2 {
     font-size: 1.8rem;
     font-weight: bold;
@@ -72,9 +72,9 @@ const Title = styled.div`
     max-width: 600px;
     margin-bottom: 20px;
   }
-`;
+`);
 
-export default function Item(props : Food) {
+function Item(props : Food) {
 	const {id, title, description, photo} = props;
   
 	const navigate = useNavigate();
@@ -93,3 +93,5 @@ export default function Item(props : Food) {
 		</StyledItem>
 	);
 }
+
+export default memo(Item);

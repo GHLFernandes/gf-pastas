@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
 import { Food } from '@/types/Foods';
 
-const Tags = styled.div`
+const Tags = memo(styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -22,9 +22,9 @@ const Tags = styled.div`
     div {
 		margin: 10px;
 	  }
-`;
+`);
 
-const Type = styled.div`
+const Type = memo(styled.div`
     align-items: center;
     border-radius: 2px;
     display: flex;
@@ -50,25 +50,25 @@ const Type = styled.div`
     &.veganos {
         background-color: ${style.filters.vegans};
     }
-`;
+`);
 
-const Portion = styled.div`
+const Portion = memo(styled.div`
     align-items: center;
     display: flex;
     font-size: 1.25rem;
     font-weight: bold;
     justify-content: center;
-`;
+`);
 
-const Serving = styled.div`
+const Serving = memo(styled.div`
     align-items: center;
     display: flex;
     font-size: 1.25rem;
     font-weight: bold;
     justify-content: center;
-`;
+`);
 
-const Price = styled.div`
+const Price = memo(styled.div`
     align-items: center;
     display: flex;
     font-size: 1.25rem;
@@ -76,9 +76,9 @@ const Price = styled.div`
     justify-content: center;
     color: ${style.color.red};
     font-size: 1.7rem;
-`;
+`);
 
-export default function TagsFood({category, size, serving, price} : Food) {
+function TagsFood({category, size, serving, price} : Food) {
 
 	return (
 		<Tags>
@@ -97,3 +97,5 @@ export default function TagsFood({category, size, serving, price} : Food) {
 		</Tags>
 	);
 }
+
+export default memo(TagsFood);

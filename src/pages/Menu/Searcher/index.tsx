@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo, useMemo } from 'react';
 import { CgSearch } from 'react-icons/cg';
 import styled from 'styled-components';
 import style from '../../../styles/_vars';
@@ -9,7 +9,7 @@ interface Props{
     setSearch: React.Dispatch<React.SetStateAction<string>>
 }
 
-const StyledSearcher = styled.div`
+const StyledSearcher = memo(styled.div`
   align-items: center;
   background-color: ${style.color.grey};
   border-radius: 5px;
@@ -23,9 +23,9 @@ const StyledSearcher = styled.div`
   @media (max-width: ${bp.mobile}) {
     width: 100%;
   }
-`;
+`);
 
-const Search = styled.input`
+const Search = memo(styled.input`
   background-color: ${style.color.grey};
   border: none;
   font-size: 1.2rem;
@@ -36,17 +36,21 @@ const Search = styled.input`
   &::placeholder {
     color: #4c4d5e;
   } 
-`;
+`);
 
-export default function Searcher({search, setSearch}: Props) {
+function Searcher({search, setSearch}: Props) {
+	const element = useMemo(() => <CgSearch size="20" color="#4C4D5E"/>, []);
+
 	return (
 		<StyledSearcher>
 			<Search
 				value={search}
-				onChange={(e) => setSearch(e.target.value)} 
+				onChange={(e:any) => setSearch(e.target.value)} 
 				placeholder="Buscar..."
 			/>
-			<CgSearch size="20" color="#4C4D5E"/>
+			{element}
 		</StyledSearcher>
 	);
 }
+
+export default memo(Searcher);
