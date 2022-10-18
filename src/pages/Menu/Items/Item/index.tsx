@@ -55,7 +55,10 @@ const Description = memo(styled.div`
         flex-direction: row;
         margin-top: 20px;
         padding: 0;
-    }
+    }  
+
+    
+
 `);
 
 const Title = memo(styled.div`
@@ -63,6 +66,10 @@ const Title = memo(styled.div`
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;
+
+    @media (max-width: ${bp.mobile}) {
+      text-align: center;
+    }
   }
 
   p {
@@ -71,7 +78,14 @@ const Title = memo(styled.div`
     font-weight: 600;
     max-width: 600px;
     margin-bottom: 20px;
+
+    @media (max-width: ${bp.mobile}) {
+      text-align: justify;
+    }
   }
+
+
+
 `);
 
 function Item(props : Food) {

@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo} from '@/assets/img/logo.svg';
 import styled from 'styled-components';
@@ -8,7 +8,7 @@ import Burger from './Burger';
 import routes from '@/_routes';
 
 const Nav = memo(styled.nav`
-    position: fixed;
+    position: relative;
     top: 0;
 	padding: 0 ${style.hPadding};
 	width: 100%;
@@ -19,6 +19,9 @@ const Nav = memo(styled.nav`
 	z-index: 99;
 	background-color: ${style.color.white};
 
+	&.fixed{
+		position: fixed;
+	}
 
 	@media (max-width: ${bp.mobile}) {
 		padding: 2px ${style.hPadding_mobile};
@@ -42,8 +45,19 @@ const Nav = memo(styled.nav`
 `);
 
 const Navbar = () => {
+
+	const [offset, setOffset] = useState(0);
+
+	useEffect(() => {
+		const onScroll = () => setOffset(window.pageYOffset);
+
+		window.removeEventListener('scroll', onScroll);
+		window.addEventListener('scroll', onScroll, { passive: true });
+		return () => window.removeEventListener('scroll', onScroll);
+	}, []);
+
 	return (
-		<Nav>
+		<Nav className={offset > 0? 'fixed': ''}>
 			<Link to={routes[0].to} className='logo'>
 				<Logo />
 			</Link>

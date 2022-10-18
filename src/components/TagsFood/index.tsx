@@ -16,7 +16,7 @@ const Tags = memo(styled.div`
     }
 
     @media (max-width: ${bp.mobile}) {
-        justify-content: flex-start;
+        justify-content: space-around;
     }
 
     div {

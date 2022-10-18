@@ -1,12 +1,13 @@
-import React, { memo } from 'react';
+import React, { lazy, memo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import items from '@/data/menu.json';
 import styled from 'styled-components';
 import style from '@/styles/_vars';
 import bp from '@/styles/_breakpoints';
-import TagsFood from '@/components/TagsFood';
-import NotFound from '../NotFound';
-import DefaultPage from '@/components/DefaultPage';
+
+const DefaultPage = lazy(() => import('@/components/DefaultPage'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
+const TagsFood = lazy(() => import('@/components/TagsFood'));
 
 const StyledFood = memo(styled.div`
     align-items: center;
@@ -48,7 +49,7 @@ const Titulo = memo(styled.h1`
 
 	@media (max-width: ${bp.mobile}) {
 		font-size: 2rem;
-		text-align: justify;
+		text-align: center;
 	}
 
 `);
@@ -76,6 +77,7 @@ const Description = memo(styled.p`
 
 	@media (max-width: ${bp.mobile}) {
 		text-align: justify;
+		font-size: 1.3rem;
 	}
 `);
 
